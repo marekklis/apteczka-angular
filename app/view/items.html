@@ -1,0 +1,12 @@
+<table class="table table-striped">
+    <thead>
+    <td>Lp.</td>
+    <td>Nazwa</td>
+    <td>Ilość</td>
+    </thead>
+    <tr ng-repeat='item in items | orderBy:"name"'>
+        <td>{{$index + 1}}.</td>
+        <td>{{item.name}}</td>
+        <td>{{item.amount}}</td>
+    </tr>
+</table>
