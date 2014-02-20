@@ -9,4 +9,4 @@ var apteczkaConfig = function ($routeProvider) {
         })
     ;
 };
-var apteczka = angular.module('apteczka', ['ngRoute']).config(apteczkaConfig);
+var apteczka = angular.module('apteczka', ['ngRoute', 'badgesFilter']).config(apteczkaConfig);

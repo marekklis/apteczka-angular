@@ -6,9 +6,10 @@
         <th>Ilość</th>
     </tr>
     </thead>
-    <tr ng-repeat='item in items | orderBy:"name"'>
+    <tr ng-repeat='item in items | orderBy:"name"' ng-class="{warning: item.warning, danger: item.danger} ">
         <td>{{$index + 1}}.</td>
         <td>{{item.name}}</td>
         <td>{{item.amount}}</td>
+        <td><span ng-repeat="badge in item.badges" ng-class="badge | badges"></span></td>
     </tr>
 </table>
