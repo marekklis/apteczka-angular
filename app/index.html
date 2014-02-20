@@ -7,12 +7,12 @@
     <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js'></script>
     <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js'></script>
     <!--bootstrap-->
-    <link rel="stylesheet" href="css/bootstrap-flatly-theme.min.css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap-flatly-theme.min.css"/>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <!--apteczka-->
     <script src='js/main.js'></script>
     <script src='js/controllers/SignInCtrl.js'></script>
-    <script src='js/controllers.js'></script>
+    <script src='js/controllers/controllers.js'></script>
     <script src='js/models/UserModel.js'></script>
     <title>Moja Apteczka</title>
 </head>
@@ -40,7 +40,8 @@
                 <button type="submit" class="btn btn-success" ng-click="signIn()">Zaloguj</button>
             </form>
             <div class="navbar-form navbar-right">
-                <a class="btn btn-warning" ng-show="isSignedIn()" ng-click="signOut()">Wyloguj</a>
+                <a class="btn btn-warning" ng-show="isSignedIn()" ng-click="signOut()">
+                    <span class="glyphicon glyphicon-off"></span> Wyloguj</a>
             </div>
         </div>
         <!--/.navbar-collapse -->
