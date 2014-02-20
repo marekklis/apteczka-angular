@@ -4,7 +4,10 @@ apteczka.service('UserModel', function ($log) {
         localStorage.password = password;
     }
     this.isSignedIn = function () {
-        return localStorage.email !== '';
+        if (localStorage.email) {
+            return true;
+        }
+        return false;
     }
     this.signOut = function () {
         localStorage.email = '';
