@@ -4,7 +4,10 @@ apteczka.controller('JumbotronCtrl', function ($scope, $location) {
     }
 });
 
-apteczka.controller('KitCtrl', function ($scope) {
+apteczka.controller('KitCtrl', function ($scope, $location, UserModel) {
+    if (!UserModel.isSignedIn()) {
+        $location.path('/');
+    }
     $scope.items = [
         {'name': 'Rutinoscorbin',
             'amount': 25},
