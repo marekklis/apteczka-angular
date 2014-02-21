@@ -2,11 +2,16 @@ apteczka.controller('KitCtrl', function ($scope, $location, UserModel) {
     if (!UserModel.isSignedIn()) {
         $location.path('/');
     }
+
+    function danger() {
+        return this.badges && this.badges.indexOf('overdue') >= 0;
+    }
+
     $scope.items = [
-        {'name': 'Rutinoscorbin', 'amount': 25, warning: 'Data ważności upływa za 7 dni', badges: ['almost-overdue']},
-        {'name': 'Lorinden A', 'amount': 50},
-        {'name': 'Aspirin C', 'amount': 3, danger: 'Lek stracił swoją ważność', badges: ['overdue', 'favorite']},
-        {'name': 'Elocom', 'amount': 17},
-        {'name': 'Chlorchinaldin', 'amount': 12, badges: ['favorite']}
+        {'name': 'Rutinoscorbin', 'amount': 25, badges: ['almost-overdue'], danger: danger},
+        {'name': 'Lorinden A', 'amount': 50, danger: danger},
+        {'name': 'Aspirin C', 'amount': 3, badges: ['overdue', 'favorite'], danger: danger},
+        {'name': 'Elocom', 'amount': 17, danger: danger},
+        {'name': 'Chlorchinaldin', 'amount': 12, badges: ['favorite'], danger: danger}
     ];
 });
