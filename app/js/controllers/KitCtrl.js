@@ -8,10 +8,10 @@ apteczka.controller('KitCtrl', function ($scope, $location, UserModel) {
     }
 
     $scope.items = [
-        {'name': 'Rutinoscorbin', 'amount': 25, badges: ['almost-overdue'], danger: danger},
-        {'name': 'Lorinden A', 'amount': 50, danger: danger},
-        {'name': 'Aspirin C', 'amount': 3, badges: ['overdue', 'favorite'], danger: danger},
+        {'name': 'Rutinoscorbin', 'amount': 25, quantity: 10, badges: ['almost-overdue'], danger: danger},
+        {'name': 'Lorinden A', 'amount': 50, quantity: 35, danger: danger},
+        {'name': 'Aspirin C', 'amount': 3, quantity: 60, badges: ['overdue', 'favorite'], danger: danger},
         {'name': 'Elocom', 'amount': 17, danger: danger},
-        {'name': 'Chlorchinaldin', 'amount': 12, badges: ['favorite'], danger: danger}
+        {'name': 'Chlorchinaldin', 'amount': 12, quantity: 87, badges: ['favorite'], danger: danger}
     ];
 });

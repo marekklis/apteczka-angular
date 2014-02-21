@@ -6,13 +6,22 @@
         <th>Nazwa</th>
         <th>Ilość</th>
         <th></th>
+        <th></th>
     </tr>
     </thead>
     <tr ng-repeat='item in items | orderBy:"name"' ng-class="{danger: item.danger()} ">
         <td class="shrink"><span ng-repeat="badge in item.badges" ng-class="badge | badges"></span></td>
         <td class="shrink">{{$index + 1}}.</td>
-        <td class="expand">{{item.name}}</td>
+        <td>{{item.name}}</td>
         <td class="shrink">{{item.amount}}</td>
+        <td>
+            <div class="progress" ng-show="item.quantity">
+                <div class="progress-bar  progress-bar-success" role="progressbar" aria-valuenow="{{item.quantity}}"
+                     aria-valuemin="0" aria-valuemax="100" ng-style="{width: item.quantity + '%'}">
+                    {{item.quantity}}%
+                </div>
+            </div>
+        </td>
         <td class="shrink">
             <button class="btn btn-xs btn-success">Szczegóły</button>
         </td>
