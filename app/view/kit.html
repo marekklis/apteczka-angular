@@ -1,3 +1,8 @@
+<div class="page-header">
+    <h1>{{kit.name}}</h1>
+</div>
+
+<input type="text" class="form-control" placeholder="Szukaj..." ng-model="query.name">
 <table class="table table-striped table-hover">
     <thead>
     <tr>
@@ -9,7 +14,7 @@
         <th></th>
     </tr>
     </thead>
-    <tr ng-repeat='item in items | orderBy:"name"' ng-class="{danger: item.danger()} ">
+    <tr ng-repeat='item in kit.items | filter:query:strict | orderBy:"name"' ng-class="{danger: danger(item)} ">
         <td class="shrink"><span ng-repeat="badge in item.badges" ng-class="badge | badges"></span></td>
         <td class="shrink">{{$index + 1}}.</td>
         <td>{{item.name}}</td>
@@ -23,7 +28,7 @@
             </div>
         </td>
         <td class="shrink">
-            <button class="btn btn-xs btn-success">Szczegóły</button>
+            <button class="btn btn-xs btn-success" ng-click="goToDetails(item.id)">Szczegóły</button>
         </td>
     </tr>
 </table>
