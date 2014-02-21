@@ -13,7 +13,7 @@
         <td class="shrink"><span ng-repeat="badge in item.badges" ng-class="badge | badges"></span></td>
         <td class="shrink">{{$index + 1}}.</td>
         <td>{{item.name}}</td>
-        <td class="shrink">{{item.amount}}</td>
+        <td class="shrink">{{item.amount + ' ' + item.amountType}}</td>
         <td>
             <div class="progress" ng-show="item.quantity">
                 <div class="progress-bar  progress-bar-success" role="progressbar" aria-valuenow="{{item.quantity}}"
