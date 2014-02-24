@@ -1,2 +1,55 @@
-<span>Strona dodawania</span>
+<div class="page-header">
+    <h1>Dodaj {{name}}</h1>
+</div>
+
+<form role="form" class="form-horizontal">
+    <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Nazwa</label>
+
+        <div class="col-sm-6">
+            <input id="name" class="form-control" ng-model="name" type="text"/>
+        </div>
+    </div>
+
+    <!--<tr>-->
+    <!--<td class="shrink"><strong>Ilość</strong></td>-->
+    <!--<td>{{item.amount}} {{item.amountType}}</td>-->
+    <!--</tr>-->
+    <!--<tr ng-show="item.quantity">-->
+    <!--<td class="shrink"><strong>Ilość pakowa</strong></td>-->
+    <!--<td>{{item.quantity}} {{item.amountType}}</td>-->
+    <!--</tr>-->
+    <div class="form-group">
+        <label for="bestBeforeDate" class="col-sm-2 control-label">Data ważności</label>
+
+        <div class="col-sm-6">
+            <input id="bestBeforeDate" class="form-control" ng-model="bestBeforeDate"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="openingDate" class="col-sm-2 control-label">Data otwarcia</label>
+
+        <div class="col-sm-6">
+            <input id="openingDate" class="form-control" ng-model="openingDate"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="expirationDaysAfterOpening" class="col-sm-2 control-label">Ważność po otwarciu</label>
+
+        <div class="col-sm-6">
+            <div class="input-group">
+                <input id="expirationDaysAfterOpening" class="form-control" ng-model="expirationDaysAfterOpening"/>
+                <span class="input-group-addon">dni</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-6">
+            <button type="button" class="btn btn-danger" ng-click="save()">Zapisz</button>
+            <button type="button" class="btn btn-primary" ng-click="cancel()">Anuluj</button>
+        </div>
+    </div>
+</form>
+
 
