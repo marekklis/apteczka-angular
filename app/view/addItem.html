@@ -2,12 +2,18 @@
     <h1>Dodaj {{item.name}}</h1>
 </div>
 
-<form role="form" class="form-horizontal">
-    <div class="form-group">
+<div class="alert alert-warning" ng-hide="form.$valid || form.$pristine">
+    <ul>
+        <li ng-hide="form.name.$valid || form.name.$pristine">Nazwa nie może być pusta</li>
+    </ul>
+</div>
+
+<form name="form" role="form" class="form-horizontal">
+    <div class="form-group" ng-class="{'has-error': !form.name.$valid}">
         <label for="name" class="col-sm-2 control-label">Nazwa</label>
 
         <div class="col-sm-6">
-            <input id="name" class="form-control" ng-model="item.name" type="text"/>
+            <input id="name" name="name" class="form-control" ng-model="item.name" type="text" required/>
         </div>
     </div>
 
@@ -46,7 +52,7 @@
 
     <div class="form-group">
         <div class="col-sm-offset-2 col-sm-6">
-            <button type="button" class="btn btn-danger" ng-click="save()">Zapisz</button>
+            <button type="button" class="btn btn-danger" ng-click="save()" ng-disabled="!form.$valid">Zapisz</button>
             <button type="button" class="btn btn-primary" ng-click="cancel()">Anuluj</button>
         </div>
     </div>
