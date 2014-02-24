@@ -3,7 +3,9 @@ apteczka.controller('AddItemCtrl', function ($scope, $routeParams, $log, $locati
         $location.path('/');
     }
 
-    $scope.item = {};
+    $scope.item = {
+        amountType: 'szt.'
+    };
 
     $scope.onlyNumbers = /^\d+$/;
 
