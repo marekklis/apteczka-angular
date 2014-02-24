@@ -15,4 +15,8 @@ apteczka.controller('ItemCtrl', function ($scope, $routeParams, $location, ItemR
     $scope.goToKit = function () {
         $location.path('/kit');
     }
+
+    $scope.goToEdit = function () {
+        $location.path('/item/' + $scope.item.id + '/edit');
+    }
 });

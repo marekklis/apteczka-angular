@@ -15,6 +15,10 @@ var apteczkaConfig = function ($routeProvider) {
             controller: 'AddItemCtrl',
             templateUrl: 'view/addItem.html'
         })
+        .when('/item/:itemId/edit', {
+            controller: 'EditItemCtrl',
+            templateUrl: 'view/addItem.html'
+        })
     ;
 };
 var apteczka = angular.module('apteczka', ['ngRoute', 'ngResource', 'badgesFilter', 'services']).config(apteczkaConfig);
