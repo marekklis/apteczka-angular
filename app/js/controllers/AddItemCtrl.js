@@ -5,6 +5,8 @@ apteczka.controller('AddItemCtrl', function ($scope, $routeParams, $log, $locati
 
     $scope.item = {};
 
+    $scope.onlyNumbers = /^\d+$/;
+
     $scope.cancel = function () {
         $location.path('/kit');
     }

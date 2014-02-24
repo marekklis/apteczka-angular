@@ -2,18 +2,15 @@
     <h1>Dodaj {{item.name}}</h1>
 </div>
 
-<div class="alert alert-warning" ng-hide="form.$valid || form.$pristine">
-    <ul>
-        <li ng-hide="form.name.$valid || form.name.$pristine">Nazwa nie może być pusta</li>
-    </ul>
-</div>
-
 <form name="form" role="form" class="form-horizontal">
     <div class="form-group" ng-class="{'has-error': !form.name.$valid}">
         <label for="name" class="col-sm-2 control-label">Nazwa</label>
 
         <div class="col-sm-6">
             <input id="name" name="name" class="form-control" ng-model="item.name" type="text" required/>
+        </div>
+        <div class="col-sm-4">
+            <p ng-hide="form.name.$valid" class="text-warning">Nazwa nie może być pusta</p>
         </div>
     </div>
 
@@ -39,14 +36,18 @@
             <input id="openingDate" class="form-control" ng-model="item.openingDate"/>
         </div>
     </div>
-    <div class="form-group">
+    <div class="form-group" ng-class="{'has-error': !form.expirationDaysAfterOpening.$valid}">
         <label for="expirationDaysAfterOpening" class="col-sm-2 control-label">Ważność po otwarciu</label>
 
         <div class="col-sm-6">
             <div class="input-group">
-                <input id="expirationDaysAfterOpening" class="form-control" ng-model="item.expirationDaysAfterOpening"/>
+                <input id="expirationDaysAfterOpening" name="expirationDaysAfterOpening" class="form-control"
+                       ng-model="item.expirationDaysAfterOpening" ng-pattern="onlyNumbers"/>
                 <span class="input-group-addon">dni</span>
             </div>
+        </div>
+        <div class="col-sm-4">
+            <p ng-hide="form.expirationDaysAfterOpening.$valid" class="text-warning">Nie jest poprawną liczbą</p>
         </div>
     </div>
 
