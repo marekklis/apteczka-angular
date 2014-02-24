@@ -3,12 +3,14 @@ apteczka.controller('AddItemCtrl', function ($scope, $routeParams, $log, $locati
         $location.path('/');
     }
 
+    $scope.item = {};
+
     $scope.cancel = function () {
         $location.path('/kit');
     }
 
     $scope.save = function () {
-        $log.info('AddItemCtrl SAVE');
+        $log.info('AddItemCtrl SAVE ' + JSON.stringify($scope.item));
         $location.path('/kit');
     }
 

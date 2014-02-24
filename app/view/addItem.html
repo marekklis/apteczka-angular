@@ -1,5 +1,5 @@
 <div class="page-header">
-    <h1>Dodaj {{name}}</h1>
+    <h1>Dodaj {{item.name}}</h1>
 </div>
 
 <form role="form" class="form-horizontal">
@@ -7,7 +7,7 @@
         <label for="name" class="col-sm-2 control-label">Nazwa</label>
 
         <div class="col-sm-6">
-            <input id="name" class="form-control" ng-model="name" type="text"/>
+            <input id="name" class="form-control" ng-model="item.name" type="text"/>
         </div>
     </div>
 
@@ -23,14 +23,14 @@
         <label for="bestBeforeDate" class="col-sm-2 control-label">Data ważności</label>
 
         <div class="col-sm-6">
-            <input id="bestBeforeDate" class="form-control" ng-model="bestBeforeDate"/>
+            <input id="bestBeforeDate" class="form-control" ng-model="item.bestBeforeDate"/>
         </div>
     </div>
     <div class="form-group">
         <label for="openingDate" class="col-sm-2 control-label">Data otwarcia</label>
 
         <div class="col-sm-6">
-            <input id="openingDate" class="form-control" ng-model="openingDate"/>
+            <input id="openingDate" class="form-control" ng-model="item.openingDate"/>
         </div>
     </div>
     <div class="form-group">
@@ -38,7 +38,7 @@
 
         <div class="col-sm-6">
             <div class="input-group">
-                <input id="expirationDaysAfterOpening" class="form-control" ng-model="expirationDaysAfterOpening"/>
+                <input id="expirationDaysAfterOpening" class="form-control" ng-model="item.expirationDaysAfterOpening"/>
                 <span class="input-group-addon">dni</span>
             </div>
         </div>
