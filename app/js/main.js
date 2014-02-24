@@ -13,11 +13,11 @@ var apteczkaConfig = function ($routeProvider) {
         })
         .when('/kit/:kitId/add', {
             controller: 'AddItemCtrl',
-            templateUrl: 'view/addItem.html'
+            templateUrl: 'view/addOrEditItem.html'
         })
         .when('/item/:itemId/edit', {
             controller: 'EditItemCtrl',
-            templateUrl: 'view/addItem.html'
+            templateUrl: 'view/addOrEditItem.html'
         })
     ;
 };
