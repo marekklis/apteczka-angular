@@ -1,24 +1,23 @@
-var apteczkaConfig = function ($routeProvider) {
-    $routeProvider
-        .when('/', {
-            templateUrl: 'view/landing.html'
-        })
-        .when('/kit', {
-            controller: 'KitCtrl',
-            templateUrl: 'view/kit.html'
-        })
-        .when('/item/:itemId', {
-            controller: 'ItemCtrl',
-            templateUrl: 'view/item.html'
-        })
-        .when('/kit/:kitId/add', {
-            controller: 'AddItemCtrl',
-            templateUrl: 'view/addOrEditItem.html'
-        })
-        .when('/item/:itemId/edit', {
-            controller: 'EditItemCtrl',
-            templateUrl: 'view/addOrEditItem.html'
-        })
-    ;
-};
-var apteczka = angular.module('apteczka', ['ngRoute', 'ngResource', 'badgesFilter', 'services']).config(apteczkaConfig);
+require.config({
+
+    paths: {
+        'domReady': './lib/requirejs/domReady',
+        'angular': '//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min',
+        'angular-resource': '//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-resource.min',
+        'angular-route': '//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.min'
+    },
+
+    shim: {
+        'angular': {
+            exports: 'angular'
+        },
+        'angular-resource': {
+            deps: ['angular']
+        },
+        'angular-route': {
+            deps: ['angular']
+        }
+    },
+
+    deps: ['./bootstrap']
+});

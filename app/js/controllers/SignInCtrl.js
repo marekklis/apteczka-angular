@@ -1,25 +1,29 @@
-apteczka.controller('SignInCtrl', function ($scope, $location, $log, UserModel) {
-    $scope.signIn = function () {
-        if ($scope.email && ($scope.email === $scope.password)) {
-            UserModel.signIn($scope.email, $scope.password);
-            $location.path('/kit');
-            $scope.email = '';
-            $scope.password = '';
-        } else {
-            $log.info('zjebałeś');
-        }
+define(['apteczka', '../models/UserModel'],
+    function (apteczka) {
+        apteczka.controller('SignInCtrl', function ($scope, $location, $log, UserModel) {
+            $scope.signIn = function () {
+                if ($scope.email && ($scope.email === $scope.password)) {
+                    UserModel.signIn($scope.email, $scope.password);
+                    $location.path('/kit');
+                    $scope.email = '';
+                    $scope.password = '';
+                } else {
+                    $log.info('zjebałeś');
+                }
+            }
+            $scope.signOut = function () {
+                UserModel.signOut();
+                $location.path('/');
+            }
+            $scope.isSignedIn = function () {
+                return UserModel.isSignedIn();
+            }
+            $scope.isOnKit = function () {
+                return $location.path() === '/kit';
+            };
+            $scope.isOnMedicamentIndex = function () {
+                return $location.path() === '/medicamentIndex';
+            };
+        });
     }
-    $scope.signOut = function () {
-        UserModel.signOut();
-        $location.path('/');
-    }
-    $scope.isSignedIn = function () {
-        return UserModel.isSignedIn();
-    }
-    $scope.isOnKit = function () {
-        return $location.path() === '/kit';
-    };
-    $scope.isOnMedicamentIndex = function () {
-        return $location.path() === '/medicamentIndex';
-    };
-});
+);

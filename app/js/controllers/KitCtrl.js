@@ -1,19 +1,23 @@
-apteczka.controller('KitCtrl', function ($scope, $location, KitREST, UserModel) {
-    if (!UserModel.isSignedIn()) {
-        $location.path('/');
+define(['apteczka', '../services/services', '../models/UserModel'],
+    function (apteczka) {
+        apteczka.controller('KitCtrl', function ($scope, $location, KitREST, UserModel) {
+            if (!UserModel.isSignedIn()) {
+                $location.path('/');
+            }
+
+            $scope.kit = KitREST.get();
+
+            $scope.danger = function (item) {
+                return item.badges && item.badges.indexOf('overdue') >= 0;
+            }
+
+            $scope.goToDetails = function (itemId) {
+                $location.path('/item/' + itemId);
+            };
+
+            $scope.goToAddItem = function () {
+                $location.path('/kit/' + $scope.kit.id + "/add");
+            }
+        });
     }
-
-    $scope.kit = KitREST.get();
-
-    $scope.danger = function (item) {
-        return item.badges && item.badges.indexOf('overdue') >= 0;
-    }
-
-    $scope.goToDetails = function (itemId) {
-        $location.path('/item/' + itemId);
-    };
-
-    $scope.goToAddItem = function () {
-        $location.path('/kit/' + $scope.kit.id + "/add");
-    }
-});
+);
